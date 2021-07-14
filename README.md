@@ -1,6 +1,5 @@
 # Covid-Dashboard
 An interactive dashboard made only with python to show the comparing graphs of all countries of world, one can decide for which variable they want to see the graph.
-
 The data for the project has been taken from the worldometer website which updates the covid cases data each day for different variables like-> 
 1. Total Cases
 2. New Cases
@@ -16,5 +15,4 @@ The data for the project has been taken from the worldometer website which updat
 12. Tests/1M Population
 13.Country Name
 14. Population
-
 So. user can provide from these first 12 variables for which they want to see the bubble chart fro all countries.
