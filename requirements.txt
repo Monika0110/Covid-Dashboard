@@ -1,0 +1,13 @@
+pandas
+numpy
+requests
+folium
+bs4
+BeautifulSoup
+plotly.express
+plotly.graph_objects
+dash
+dash_html_components
+dash_core_components
+dash.dependencies
+json
