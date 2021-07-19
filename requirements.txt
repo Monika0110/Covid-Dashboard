@@ -71,7 +71,6 @@ nest-asyncio==1.5.1
 notebook==6.3.0
 numpy==1.20.2
 openpyxl==3.0.7
-packagemonika @ file:///C:/Users/Monika/PycharmProjects/PackageMonika/dist/packagemonika-2.1-py3-none-any.whl
 packaging==20.9
 pandas==1.2.3
 pandocfilters==1.4.3
