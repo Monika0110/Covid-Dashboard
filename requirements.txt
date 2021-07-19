@@ -83,7 +83,6 @@ pipwin==0.5.1
 plotly==5.1.0
 prometheus-client==0.10.0
 prompt-toolkit==3.0.18
-PyAudio @ file:///C:/Python39/Scripts/PyAudio-0.2.11-cp39-cp39-win_amd64.whl
 pycparser==2.20
 pygame==2.0.1
 Pygments==2.8.1
