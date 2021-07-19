@@ -160,7 +160,7 @@ px.scatter(covidData,x ='Population',y='Total Cases',
 # In[25]:
 
 
-app = dash.Dash()
+app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'center','color':'#503D36','font-size':40}),
@@ -208,7 +208,8 @@ def get_graph(typec):
     
 #     return world_map
 
-
+if __name__=='__main__':
+    app.run_server()
 
 # In[ ]:
 
