@@ -89,7 +89,6 @@ pyinstaller==4.2
 pyinstaller-hooks-contrib==2021.1
 pyjsparser==2.7.1
 pyparsing==2.4.7
-pypiwin32==223
 PyPrind==2.11.2
 pyproj==3.1.0
 pyrsistent==0.17.3
