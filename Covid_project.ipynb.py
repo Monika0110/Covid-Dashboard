@@ -38,6 +38,9 @@ import requests
 
 import json
 
+from flask import Flask
+
+import os
 
 # #### First get the data using the worldometer website which shows updated data for cases of COVID for each day.
 
