@@ -160,8 +160,12 @@ px.scatter(covidData,x ='Population',y='Total Cases',
 # In[25]:
 
 
-app = dash.Dash(__name__)
-server = app.server
+# app = dash.Dash(__name__)
+# server = app.server
+server = Flask(__name__)
+server.secret_key = os.environ.get('secret_key', 'secret')
+app = dash.Dash(name = __name__, server = server)
+app.config.supress_callback_exceptions = True
 
 app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'center','color':'#503D36','font-size':40}),
                                   html.Div([
@@ -208,8 +212,8 @@ def get_graph(typec):
     
 #     return world_map
 
-if __name__=='__main__':
-    app.run_server()
+# if __name__=='__main__':
+#     app.run_server()
 
 # In[ ]:
 
