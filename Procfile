@@ -1,1 +1,1 @@
-web: gunicorn Covid_project.ipynb.py:server
+web:gunicorn Covid_project.ipynb.py:server
