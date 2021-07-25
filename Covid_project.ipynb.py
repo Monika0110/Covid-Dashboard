@@ -179,6 +179,7 @@ app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'
                                       
                                       dcc.Dropdown(id = 'input-type',
                                                    options = [{'label':i, 'value':i } for i in columnName[1:]],
+                                                   value="Total Cases",
                                                    placeholder = "Select type",
                                                    style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
                                   ], style={'display':'flex'}),
@@ -190,7 +191,7 @@ app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'
 
 @app.callback(Output(component_id = 'fig',component_property='figure'),
              Input(component_id='input-type',component_property='value'))
-#              State('plot','children'))
+             State('plot','children'))
 
 
 
