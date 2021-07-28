@@ -1,2 +1,2 @@
-web:gunicorn Covid_project.ipynb:server
+web:gunicorn Covid_project:server
 heroku ps:scale worker=1
