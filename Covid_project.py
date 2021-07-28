@@ -132,7 +132,8 @@ animData = covidData.melt(id_vars=covidData.columns[0:1],
 
 from jupyter_dash import JupyterDash
 
-app = JupyterDash(__name__)
+app = dash.Dash(__name__)
+server=app.server
 
 app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'center','color':'#503D36',
                                                                    'font-size':40,'font-family': 'cursive',
@@ -179,9 +180,9 @@ app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'
 
 
 
-def get_graph(typec):
+def get_graph(value):
     
-    fig = px.scatter(covidData,x ='Population',y='{}'.format(typec),
+    fig = px.scatter(covidData,x ='Population',y='{}'.format(value),
           size='Population',color='Country',
           hover_name='Country',log_x=True,size_max=60)
 #     fig.update_yaxes(rangemode="tozero")
@@ -200,59 +201,59 @@ def get_graph(typec):
                        font_size=20,
                        font_color="black",)
     
-    if(typec=='Total Cases' or typec=='Total Tests' or typec=='New Cases'):
-        data=copyData.dropna(subset=['{}'.format(typec)],axis=0)
-        data['{} Rate'.format(typec)]=(data['{}'.format(typec)]/data['Population'])*100
-        data.sort_values('{} Rate'.format(typec),ascending=False,inplace=True)
+    if(value=='Total Cases' or value=='Total Tests' or value=='New Cases'):
+        data=copyData.dropna(subset=['{}'.format(value)],axis=0)
+        data['{} Rate'.format(typec)]=(data['{}'.format(value)]/data['Population'])*100
+        data.sort_values('{} Rate'.format(value),ascending=False,inplace=True)
         useDataHead=data.head()
         useDataTail=data.tail()
         fig3 = px.sunburst(useDataHead,path=['Country'],
-                       values='{} Rate'.format(typec),color='Country',
-                       hover_data={'Population','{}'.format(typec)},
-                       title="{} As Factor-> Top Five Performer Countries".format(typec),
+                       values='{} Rate'.format(value),color='Country',
+                       hover_data={'Population','{}'.format(value)},
+                       title="{} As Factor-> Top Five Performer Countries".format(value),
                       )
         
         fig4 = px.sunburst(useDataTail,
                        path=['Country'],
-                       values='{} Rate'.format(typec),
-                       hover_data={'Population','{}'.format(typec)},
-                       color='Country',title="{} As Factor-> Bottom Five Performer Countries".format(typec),
+                       values='{} Rate'.format(value),
+                       hover_data={'Population','{}'.format(value)},
+                       color='Country',title="{} As Factor-> Bottom Five Performer Countries".format(value),
                       )
-    elif(typec=='Total Deaths' or typec=='Total Recovered' or 
-            typec=='New Deaths' or typec=='New Recovered' or typec=='Active Cases' or typec=='Serious Cases'):
-        data=copyData.dropna(subset=['{}'.format(typec)],axis=0)
-        data['{} Rate'.format(typec)]=(data['{}'.format(typec)]/data['Total Cases'])*100
-        data.sort_values('{} Rate'.format(typec),ascending=False,inplace=True)
+    elif(value=='Total Deaths' or value=='Total Recovered' or 
+            value=='New Deaths' or value=='New Recovered' or value=='Active Cases' or value=='Serious Cases'):
+        data=copyData.dropna(subset=['{}'.format(value)],axis=0)
+        data['{} Rate'.format(value)]=(data['{}'.format(value)]/data['Total Cases'])*100
+        data.sort_values('{} Rate'.format(value),ascending=False,inplace=True)
         useDataHead=data.head()
         useDataTail=data.tail()
         fig3 = px.sunburst(useDataHead,path=['Country'],
-                       values='{} Rate'.format(typec),color='Country',
-                       hover_data={'Total Cases','{}'.format(typec)},
-                       title="{} As Factor-> Top Five Performer Countries".format(typec),
+                       values='{} Rate'.format(value),color='Country',
+                       hover_data={'Total Cases','{}'.format(value)},
+                       title="{} As Factor-> Top Five Performer Countries".format(value),
                       )
         
         fig4 = px.sunburst(useDataTail,
                        path=['Country'],
-                       values='{} Rate'.format(typec),
-                       hover_data={'Total Cases','{}'.format(typec)},
-                       color='Country',title="{} As Factor-> Bottom Five Performer Countries".format(typec),
+                       values='{} Rate'.format(value),
+                       hover_data={'Total Cases','{}'.format(value)},
+                       color='Country',title="{} As Factor-> Bottom Five Performer Countries".format(value),
                       )
     else:
-        data=copyData.dropna(subset=['{}'.format(typec)],axis=0)
-        data.sort_values('{}'.format(typec),ascending=False,inplace=True)
+        data=copyData.dropna(subset=['{}'.format(value)],axis=0)
+        data.sort_values('{}'.format(value),ascending=False,inplace=True)
         useDataHead=data.head()
         useDataTail=data.tail()
         fig3 = px.sunburst(useDataHead,path=['Country'],
-                       values='{}'.format(typec),color='Country',
-                       hover_data={'Population','{}'.format(typec)},
-                       title="{} As Factor-> Top Five Performer Countries".format(typec),
+                       values='{}'.format(value),color='Country',
+                       hover_data={'Population','{}'.format(value)},
+                       title="{} As Factor-> Top Five Performer Countries".format(value),
                       )
         
         fig4 = px.sunburst(useDataTail,
                        path=['Country'],
-                       values='{}'.format(typec),
-                       hover_data={'Population','{}'.format(typec)},
-                       color='Country',title="{} As Factor-> Bottom Five Performer Countries".format(typec),
+                       values='{}'.format(value),
+                       hover_data={'Population','{}'.format(value)},
+                       color='Country',title="{} As Factor-> Bottom Five Performer Countries".format(value),
                       )
     
     fig3.update_layout(height=600,
