@@ -132,10 +132,10 @@ animData = covidData.melt(id_vars=covidData.columns[0:1],
 # fig.update_layout(height=600)
 # fig.show()
 
-from jupyter_dash import JupyterDash
+# from jupyter_dash import JupyterDash
 
 app = dash.Dash(__name__)
-server=app.server
+
 
 app.layout = html.Div(children = [html.H1("Covid Dashboard",style={'textAlign':'center','color':'#503D36',
                                                                    'font-size':40,'font-family': 'cursive',
@@ -275,6 +275,8 @@ def get_graph(value):
     
     return fig,fig2,fig3,fig4
 
+server=app.server
+
 if __name__=='__main__':
-    app.run_server(debug=True, port=int(os.environ.get("PORT", 5000)), host='0.0.0.0')
+    app.run_server()
 
