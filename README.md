@@ -15,4 +15,4 @@
 # => Tests/1M Population
 # =>Country Name
 # => Population
-# So. user can provide from these first 12 variables for which they want to see the bubble chart fro all countries.
+# So. user can provide from these first 12 variables for which they want to see the bubble chart for all countries.
