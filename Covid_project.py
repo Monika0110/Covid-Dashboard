@@ -83,8 +83,7 @@ for col in columnName[1:]:
 
 #Now as folium requires a json file containing the boundaries of states and countries, to plot our dataset on it, we load that json file. 
 
-url='https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DV0101EN-SkillsNetwork/Data%20Files/world_countries.json'
-
+url='https://raw.githubusercontent.com/python-visualization/folium/main/examples/data/world-countries.json'
 res = requests.get(url).json()
 # res
 
